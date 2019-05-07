@@ -1,68 +1,29 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Research and planning:
 
-## Available Scripts
+First step in any task is research and planning and I took my time in trying to understand the task as good as possible. Under normal circumstances, in a team, I would ask my team mates for opinions.
 
-In the project directory, you can run:
+Using Postman, I made a few queries to the end-points indicated, to try to understand what is the structure of the data response. From that, I got quite a good idea for what I would have to do next.
 
-### `npm start`
+I implemented some data handling like adding and deleting people to a list. Add meetings to a calendar, get information about upcoming meetings and the names of atendees. I could go further but that would require more end-points on the API server.
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Design and branding:
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+A products strength is composed in equal parts of good code and good design.
+To be able to do a design, I took the freedom of imagining a brand for the company. I chose colors and I designed a simple but sharp logo and favicon. The process of thinking and designing an interface from scratch took more time than the programming but I really believe that a client would be more impressed by a good design that does little than a bad design that does a lot.
 
-### `npm test`
+## Programming:
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+I used React.js, HTML5 and CSS3. For CSS3 I could have used SASS but I feel like the compiled CSS is sometimes messier than a well thought CSS and since I can use CSS3 variables, SASS was simply unnecesary.
 
-### `npm run build`
+## Usage:
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Extract the archive.
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+build folder contains a built version of the app.
+src folder contains the "uncompiled" source code.
+**npm install** to install dependencies
+**npm start** to start the dev server
+**npm build** to compile the source
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Ioan Rosgrim
+https://github.com/irosgrim

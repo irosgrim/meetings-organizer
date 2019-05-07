@@ -1,0 +1,583 @@
+/* global resets */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+/* global variables */
+
+:root {
+    --document-bg: #ffffff;
+    --primary-color: #5324b5;
+    --header-bg: #e1dcec;
+    --selection-search-outline: #eae5f5;
+    --search-input-outline: #cdbeed;
+    --inactive-search-result: #fafafc;
+    --list-title-bg: #e5f4e6;
+}
+
+a {
+    text-decoration: none;
+    color: #333333;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.App {
+    position: relative;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    overflow-x: hidden;
+}
+
+.doc-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+    background-color: var(--header-bg);
+    height: 40px;
+    cursor: pointer;
+}
+
+.doc-header .logo {
+    height: 22px;
+}
+
+.doc-header .logo img {
+    height: 100%;
+    width: auto;
+}
+
+.user-menu {
+    position: absolute;
+    z-index: 10;
+    top: 40px;
+    background: linear-gradient(180.95deg, #eae5f4 0.57%, #ffffff 194.11%);
+    box-shadow: -4px 8px 10px rgba(0, 0, 0, 0.15);
+    border-radius: 0 0 0 5px;
+    width: 200px;
+    transition: 0.3s;
+}
+
+.show-user-menu {
+    right: 0;
+}
+
+.hide-user-menu {
+    right: -220px;
+}
+
+.user-menu ul {
+    list-style-type: none;
+}
+
+.user-menu ul li {
+    width: 100%;
+    height: 30px;
+    transition: 0.3s;
+    cursor: pointer;
+    padding: 0 20px;
+}
+
+.user-menu ul li:first-child {
+    margin-top: 20px;
+}
+
+.user-menu ul li:last-child {
+    margin-bottom: 20px;
+}
+
+.user-menu ul li:hover {
+    padding-left: 30px;
+    background-color: #e9e5f3;
+}
+
+.search-section {
+    display: flex;
+    padding: 0 20%;
+    justify-content: center;
+    align-items: center;
+    margin-top: 60px;
+}
+
+main {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: left;
+    align-items: flex-start;
+    height: 100vh;
+}
+
+.side-nav {
+    position: relative;
+    height: 100%;
+    background: linear-gradient( 180deg, var(--header-bg) 80.76%, rgba(255, 255, 255, 0) 98.33%);
+    transition: 0.3s;
+    overflow-x: hidden;
+    width: auto;
+    transition: all 0.3s;
+}
+
+.toggle-menu {
+    margin-bottom: 40px;
+    padding-right: 20px;
+    text-align: right;
+    cursor: pointer;
+}
+
+.side-nav nav {
+    height: 280px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-end;
+    width: auto;
+    transition: all 0.3s;
+}
+
+.nav-link {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    margin: 0 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.nav-link h4 {
+    margin: 0 10px;
+    font-size: 1rem;
+    font-weight: 400;
+    transition: 0.3s;
+}
+
+.meeting-list {
+    position: relative;
+}
+
+.calendar-notification {
+    position: relative;
+}
+
+.calendar-tooltip {
+    position: absolute;
+    top: -8px;
+    right: -5px;
+    width: 15px;
+    height: 15px;
+    background-color: #3cb1ff;
+    border-radius: 50%;
+    user-select: none;
+}
+
+.calendar-content {
+    margin-top: 20px;
+}
+
+.meeting-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.atendees-container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #e5f4e6;
+    padding: 20px;
+}
+
+.atendee {
+    height: auto;
+    width: 200px;
+    padding: 10px 20px;
+}
+
+.btn {
+    height: 40px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    background-color: #e9e5f3;
+    font-size: 1rem;
+    font-weight: 400;
+    padding: 0 30px;
+    margin-right: 20px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.btn:active, .btn:focus {
+    outline: none;
+    border: none;
+}
+
+.btn:hover {
+    background-color: #aca5be;
+}
+
+.warning {
+    background-color: #d81b60;
+    color: #ffffff;
+}
+
+.warning:hover {
+    background-color: #9c3d60;
+}
+
+.amount-selected {
+    position: absolute;
+    top: -18px;
+    left: -5px;
+    width: 36px;
+    height: 20px;
+    background-color: #ff5f3c;
+    border-radius: 10px;
+    color: #ffffff;
+    font-size: 0.68rem;
+    text-align: center;
+    padding-top: 3px;
+    user-select: none;
+}
+
+.time-container {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.time-container input {
+    padding: 0 10px;
+}
+
+.time-container input:focus, .time-container select:focus {
+    outline: none;
+    border: 1px solid var(--primary-color);
+}
+
+.time-container input, select {
+    height: 40px;
+    width: 250px;
+    border-radius: 5px;
+    border: 1px solid #cdbeed;
+    font-size: 1.125rem;
+    font-weight: 300;
+}
+
+.selector {
+    display: flex;
+    align-items: center;
+    width: 500px;
+    margin: 10px 10px;
+}
+
+.selector h4 {
+    font-size: 1.125rem;
+    width: 200px;
+    font-weight: 400;
+}
+
+.brand-btn {
+    background-color: var(--primary-color);
+    color: #ffffff;
+    border-radius: 5px;
+    height: 30px;
+    outline: none;
+    border: none;
+    padding: 0 30px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.brand-btn:hover {
+    background-color: #714cc2;
+}
+
+.btn-container {
+    margin: 20px auto;
+    text-align: center;
+}
+
+.btn-container button {
+    height: 40px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    background-color: #e9e5f3;
+    font-size: 1rem;
+    font-weight: 400;
+    padding: 0 30px;
+    margin-right: 20px;
+}
+
+.list-title {
+    position: relative;
+    width: 100%;
+    text-align: center;
+    height: 40px;
+    margin-top: 20px;
+    padding-top: 10px;
+    background-color: var(--list-title-bg);
+}
+
+.list-title h3 {
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.suggestions-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.suggestions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.suggestions-column {
+    width: 90%;
+    justify-content: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 0 10px;
+}
+
+.suggestions-column h3 {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.suggestions-time {
+    height: 20px;
+    letter-spacing: 0.2rem;
+    border-bottom: 1px solid var(--selection-search-outline);
+    cursor: pointer;
+}
+
+.suggestions-time:hover {
+    background-color: var(--header-bg);
+}
+
+.selector h3 {
+    width: 90%;
+    text-align: center;
+    font-size: 1.125rem;
+    font-weight: 400;
+    margin: 10px 0;
+}
+
+.main-content {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.selected-btn {
+    flex-grow: 1;
+    height: 60px;
+    outline: none;
+    border: 1px solid var(--selection-search-outline);
+    border-radius: 5px;
+    font-size: 1.62rem;
+    padding: 0 20px;
+    min-width: 200px;
+    color: var(--primary-color);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 40px;
+    padding: 0 20px;
+    margin: 0;
+}
+
+.error {
+    background-color: #f4e5f1;
+}
+
+.error h3 {
+    font-size: 1rem;
+    color: #be5252;
+}
+
+.selected-btn:hover {
+    background-color: #eae5f4;
+}
+
+.selected-btn-label {
+    color: #a8a8a8;
+}
+
+.search-section form {
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--search-input-outline);
+    border-radius: 5px;
+    margin-left: 10px;
+    flex-grow: 11;
+    transition: 0.4s;
+}
+
+.search-section form:focus-within {
+    border: 1px solid var(--primary-color);
+}
+
+.search-section form input {
+    height: 60px;
+    outline: none;
+    border: none;
+    min-width: 300px;
+    width: 100%;
+    border-radius: 5px;
+    padding: 0 10px;
+    font-size: 1.125rem;
+}
+
+.search-section form input::placeholder {
+    color: #a8a8a8;
+}
+
+.search-section form figure {
+    margin-right: 10px;
+}
+
+.search-results {
+    padding: 0 10%;
+    margin: 20px 0;
+}
+
+.found-person {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    background-color: var(--inactive-search-result);
+    padding: 0 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.found-person:hover {
+    background-color: var(--selection-search-outline);
+}
+
+.selected {
+    background-color: var(--selection-search-outline);
+}
+
+.found-person h3 {
+    font-size: 1.375rem;
+    font-weight: 400;
+}
+
+.found-person .check-icon {
+    cursor: pointer;
+}
+
+.modal {
+    position: absolute;
+    z-index: 42;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.13);
+}
+
+.modal-message {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 44;
+    height: 150px;
+    width: 400px;
+    margin: 20vh auto 0 auto;
+    background-color: #ffffff;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.modal-message h3 {
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+
+.modal-message button {
+    border: 0;
+    outline: 0;
+    border-radius: 5px;
+    height: 30px;
+    padding: 0 50px;
+    background-color: var(--search-input-outline);
+    margin-top: 30px;
+    font-size: 1rem;
+    font-weight: 400;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.modal-message button:hover {
+    background-color: #afa0d1;
+}
+
+button:focus {
+    outline: none;
+    border: none;
+}
+
+/* this could be made into a more mobile friendly app but that 
+   would have been out of the tasks scope .
+*/
+
+@media screen and (max-width: 375px) {
+    .search-section {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+    .search-section form {
+        margin: 0;
+    }
+    .search-section form input {
+        width: 100%;
+    }
+    .selected-btn {
+        margin-bottom: 20px;
+    }
+}
